@@ -1,0 +1,151 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+:root{
+    --time: 12;
+}
+
+
+.link {
+    background:rgba(255, 255, 255, 0.5);
+    border-radius: 1000px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5em;
+    padding: 1em;
+    flex: 1 1 0;
+}
+
+.link:hover, .link:focus {
+    color: white;
+    text-shadow:0px 0px 70px white;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in;
+    outline: none;
+}
+
+
+.link__label {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.25em;
+    cursor: pointer;
+}
+
+.icon {
+    padding: 0;
+    margin: 0;
+    width: 3em;
+    height: 3em;
+}
+
+.sky {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #2C3E50 0%, #ffd89b 10%, #19547b 25%, #3a7bd5 70%, #FD746C 85%, #2C3E50 100%);
+    background-size: 100% 1000%;
+}
+
+.sky-night {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #2C3E50, #090979, #fc4684, #020024, #2C3E50);
+    background-size: 100% 1000%;
+}
+
+.celestial-body {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    --sun-bottom: 0;
+    bottom: var(--sun-bottom);
+}
+.sun {
+    background-color: gold;
+    filter: blur(1px);
+}
+
+.moon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.cloud {
+    height: 25vmin;
+    width: 25vmin;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    will-change: transform;
+    animation: CloudAnimation 20s linear infinite;
+    z-index: 1;
+}
+
+.cloud:nth-child(2) {
+    top: 10%;
+    animation-duration: 35s;
+}
+
+.cloud:nth-child(3) {
+    top: 25%;
+    animation-duration: 50s;
+}
+
+.cloud:nth-child(4) {
+    top: 50%;
+    animation-duration: 60s;
+}
+
+.circle {
+    height: 20vmin;
+    width: 20vmin;
+    border-radius: 50%;
+}
+
+.nav-row {
+    height: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position: relative;
+    z-index: 100;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 640px){
+ .nav-row {
+     flex-direction: row;
+     align-items: center;
+ }
+}
+
+@keyframes CloudAnimation {
+    from {
+        transform: translateX(-25vw);
+    }
+    to {
+        transform: translateX(125vw);
+    }
+}
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
